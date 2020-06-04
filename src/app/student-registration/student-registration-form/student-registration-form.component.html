@@ -1,0 +1,66 @@
+<div class="alignMatCard">
+    <mat-card class="textAlignCenter">
+        <mat-card-title>
+            Student Registration Form
+        </mat-card-title>
+        <mat-card-content>
+            <div class="container textAlignCenter">
+                <form [formGroup]="studentRegistrationForm" (ngSubmit)="onFormSubmit(studentRegistrationForm.value)" class="form">
+                    <div class="textAlignCenter">
+
+                        <mat-form-field class="form-element">
+                            <mat-label>Name</mat-label>
+                            <input matInput placeholder="ANme" formControlName="name">
+                            <mat-error
+                                *ngIf="!studentRegistrationForm.controls['name'].valid && studentRegistrationForm.controls['name'].touched">
+                                Please enter Full Name
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field class="form-element">
+                            <mat-label>Email Id</mat-label>
+                            <input matInput placeholder="emailId" formControlName="email">
+                            <mat-error
+                                *ngIf="!studentRegistrationForm.controls['email'].valid && studentRegistrationForm.controls['email'].touched">
+                                Please enter your email
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field class="form-element">
+                            <mat-label>Phone No.</mat-label>
+                            <input matInput placeholder="Phone Number" formControlName="phoneno">
+                            <mat-error
+                                *ngIf="!studentRegistrationForm.controls['phoneno'].valid && studentRegistrationForm.controls['phoneno'].touched">
+                                Please enter Password
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field class="form-element">
+                            <mat-label>User Name</mat-label>
+                            <input matInput placeholder="User Name" formControlName="userName">
+                            <mat-error
+                                *ngIf="!studentRegistrationForm.controls['userName'].valid && studentRegistrationForm.controls['userName'].touched">
+                                Please enter User Name
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field class="form-element">
+                            <mat-label>Password</mat-label>
+                            <input matInput placeholder="Password" formControlName="password">
+                            <mat-error
+                                *ngIf="!studentRegistrationForm.controls['password'].valid && studentRegistrationForm.controls['password'].touched">
+                                Please enter Password
+                            </mat-error>
+                        </mat-form-field>
+                        
+                    </div>
+                    <div class="form-element">
+                        <button mat-button mat-raised-button color="primary" type="submit"
+                            [disabled]="!studentRegistrationForm.valid" class="buttonAlign"> Register</button>  
+                    </div>
+
+                </form>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

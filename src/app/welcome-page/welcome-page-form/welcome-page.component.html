@@ -1,0 +1,39 @@
+<div class="alignMatCard">
+    <mat-card class="textAlignCenter">
+        <mat-card-title>
+            Login
+        </mat-card-title>
+        <mat-card-content>
+            <div class="container textAlignCenter">
+                <form [formGroup]="welcomeForm" (ngSubmit)="onFormSubmit(welcomeForm.value)" class="form">
+                    <div class="textAlignCenter">
+                        <mat-form-field class="form-element">
+                            <mat-label>User Name</mat-label>
+                            <input matInput placeholder="User Name" formControlName="userName">
+                            <mat-error
+                                *ngIf="!welcomeForm.controls['userName'].valid && welcomeForm.controls['userName'].touched">
+                                Please enter User Name
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field class="form-element">
+                            <mat-label>Password</mat-label>
+                            <input matInput placeholder="Password" formControlName="password">
+                            <mat-error
+                                *ngIf="!welcomeForm.controls['password'].valid && welcomeForm.controls['password'].touched">
+                                Please enter Password
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-element">
+                        <button mat-button mat-raised-button color="primary" type="submit"
+                            [disabled]="!welcomeForm.valid" class="buttonAlign"> Login</button>
+                        <button mat-button mat-raised-button color="primary" type="button"
+                            (click)="goToStudentRegistration()" class="buttonAlign">Register</button>
+                    </div>
+
+                </form>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
