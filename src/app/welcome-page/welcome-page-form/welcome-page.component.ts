@@ -28,6 +28,7 @@ export class WelcomePageComponent implements OnInit {
     }
 
     goToStudentRegistration(){
+      console.log("registration");
       this.router.navigateByUrl('/registerStudent');
     }
    

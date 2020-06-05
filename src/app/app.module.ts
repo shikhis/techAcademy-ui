@@ -13,12 +13,26 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { StudentRegistrationFormComponent } from 'src/app/student-registration/student-registration-form/student-registration-form.component';
 import { MatIconModule } from '@angular/material/icon';
+import { FooterComponent } from 'src/app/shared/footer/footer.component';
+import { HeaderComponent } from 'src/app/shared/header/header.component';
+import { VideoConferenceComponent } from './video-conferencing/video-conference/video-conference.component';
+import { environment } from 'src/environments/environment';
+import { NgxAgoraModule } from 'ngx-agora';
+
+//to be removed
+import { AngularAgoraRtcModule, AgoraConfig } from 'angular-agora-rtc'; // Add
+const agoraConfig: AgoraConfig = {
+  AppID: '5788f0cdbac7418caa9baac2eb30b967',
+};
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomePageComponent,
-    StudentRegistrationFormComponent
+    StudentRegistrationFormComponent,
+    HeaderComponent,
+    FooterComponent,
+    VideoConferenceComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +44,9 @@ import { MatIconModule } from '@angular/material/icon';
     ReactiveFormsModule,
     MatInputModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+   // NgxAgoraModule.forRoot({ AppID: environment.agora.appId }) //uncooment later
+    AngularAgoraRtcModule.forRoot(agoraConfig) // remove
   ],
   providers: [],
   bootstrap: [AppComponent]
